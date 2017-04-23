@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 /**
- * Rejestracja konta w demoqa.com
+ * Rejestracja konta w demoqa.com bez ustawiania zdjęcia profilowego
  */
-public class RegistrationPage {
+public class RegistrationPage { //TODO wybieranie zdjęcia profilowego
 
     private WebDriver driver;
 
@@ -86,7 +86,7 @@ public class RegistrationPage {
 
     public void selectHobby(int hobby) {
         hobbyCheckBox.get(hobby).click();
-    }
+    } //TODO można wybrać więcej niż jedno hobby
 
     public void selectCountryField(String country) {
         Select options = new Select(countryField);
