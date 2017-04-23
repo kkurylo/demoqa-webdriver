@@ -2,10 +2,14 @@ package pl.koko.domain;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+/**
+ * Test poprawnej rejestracji konta w demoqa.com
+ */
 public class RegistrationPageTest {
 
     WebDriver driver = new ChromeDriver();
@@ -17,21 +21,24 @@ public class RegistrationPageTest {
     }
 
     @Test
-    public void shouldRegisterNewUser() throws InterruptedException {
-        registrationPage.setFirstNameField("Napoleon");
-        registrationPage.setLastNameField("Bonaparte");
+    public void shouldRegisterNewUser() {
+        registrationPage.setFirstNameField("Robinson");
+        registrationPage.setLastNameField("Cruzoe");
         registrationPage.selectMaritalStatus(1);
         registrationPage.selectHobby(2);
-        registrationPage.selectCountryField("Brazil");
-        registrationPage.selectMonthField("4");
-        registrationPage.selectDayField("14");
-        registrationPage.selectYearField("2012");
-        registrationPage.setPhoneField("4834567890");
-        registrationPage.setUsernameField("napoleonBonaparte4567");
-        registrationPage.setEmailField("napoleonBonaparte@gmail.com");
-        registrationPage.setDescriptionField("Being a lady");
-        registrationPage.setPasswordField("Password100pas");
-        registrationPage.setConfirmPasswordField("Password100pas");
+        registrationPage.selectCountryField("Afghanistan");
+        registrationPage.selectMonthField("3");
+        registrationPage.selectDayField("15");
+        registrationPage.selectYearField("2011");
+        registrationPage.setPhoneField("48765456789");
+        registrationPage.setUsernameField("robinson4567");
+        registrationPage.setEmailField("robinsonC@gmail.com");
+        registrationPage.setDescriptionField("Being a big man");
+        registrationPage.setPasswordField("Password100asskeep");
+        registrationPage.setConfirmPasswordField("Password100asskeep");
+        registrationPage.submit();
+
+        Assert.assertTrue(registrationPage.tellIfSeeNotificationBoxThanksForRegistration());
     }
 
     @AfterTest

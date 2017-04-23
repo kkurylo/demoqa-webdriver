@@ -48,9 +48,6 @@ public class RegistrationPage {
     @FindBy(id = "email_1")
     private WebElement emailField;
 
-    @FindBy(id = "profile_pic_10")
-    private WebElement pictureField;
-
     @FindBy(id = "description")
     private WebElement descriptionField;
 
@@ -62,6 +59,9 @@ public class RegistrationPage {
 
     @FindBy(name = "pie_submit")
     private WebElement submitButton;
+
+    @FindBy(xpath = "//*[@id=\"post-49\"]/div/p")
+    private WebElement notificationBox;
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
@@ -120,9 +120,6 @@ public class RegistrationPage {
         emailField.sendKeys(email);
     }
 
-    public void setPictureField() {
-    }
-
     public void setDescriptionField(String description) {
         descriptionField.sendKeys(description);
     }
@@ -137,6 +134,10 @@ public class RegistrationPage {
 
     public void submit() {
         submitButton.click();
+    }
+
+    public boolean tellIfSeeNotificationBoxThanksForRegistration() {
+        return notificationBox.isDisplayed();
     }
 
 }
