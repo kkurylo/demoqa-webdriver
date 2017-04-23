@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 /**
  * Rejestracja konta w demoqa.com
  */
@@ -18,6 +20,12 @@ public class RegistrationPage {
 
     @FindBy(id = "name_3_lastname")
     private WebElement lastNameField;
+
+    @FindBy(name = "radio_4[]")
+    private List<WebElement> maritalStatusRadioBox;
+
+    @FindBy(name = "checkbox_5[]")
+    private List<WebElement> hobbyCheckBox;
 
     @FindBy(id = "dropdown_7")
     private WebElement countryField;
@@ -70,6 +78,14 @@ public class RegistrationPage {
 
     public void setLastNameField(String lastName) {
         lastNameField.sendKeys(lastName);
+    }
+
+    public void selectMaritalStatus(int maritalStatus) {
+        maritalStatusRadioBox.get(maritalStatus).click();
+    }
+
+    public void selectHobby(int hobby) {
+        hobbyCheckBox.get(hobby).click();
     }
 
     public void selectCountryField(String country) {

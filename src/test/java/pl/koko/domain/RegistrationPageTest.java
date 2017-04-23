@@ -17,9 +17,11 @@ public class RegistrationPageTest {
     }
 
     @Test
-    public void shouldRegisterNewUser() {
+    public void shouldRegisterNewUser() throws InterruptedException {
         registrationPage.setFirstNameField("Napoleon");
         registrationPage.setLastNameField("Bonaparte");
+        registrationPage.selectMaritalStatus(1);
+        registrationPage.selectHobby(2);
         registrationPage.selectCountryField("Brazil");
         registrationPage.selectMonthField("4");
         registrationPage.selectDayField("14");
